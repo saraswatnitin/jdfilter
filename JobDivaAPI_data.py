@@ -1,10 +1,10 @@
 #import plotly.graph_objects as go
 import pandas as pd
 import streamlit as st
-import spacy
-import os
+#import spacy
+#import os
 import requests
-import json
+#import json
 
 
 hide_streamlit_style = """
