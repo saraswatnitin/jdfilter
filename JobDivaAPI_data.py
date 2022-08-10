@@ -87,7 +87,7 @@ hide_table_row_index = """
 # Inject CSS with Markdown
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
-st.dataframe(searched_cand)
+#st.dataframe(searched_cand)
 
 #st.dataframe(df1)
 #st.dataframe(df2)
