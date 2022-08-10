@@ -12,8 +12,8 @@ def check_password():
 
     def password_entered():
         """Checks whether a password entered by the user is correct."""
-        st.write(st.session_state["username"])
-        st.write(st.session_state["password"])
+        #st.write(st.session_state["username"])
+        #st.write(st.session_state["password"])
         if (
             #st.session_state["username"] in st.secrets["passwords"]
             #and st.session_state["password"]
