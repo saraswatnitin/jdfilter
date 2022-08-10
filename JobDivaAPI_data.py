@@ -19,7 +19,7 @@ def check_password():
             #and st.session_state["password"]
             #== st.secrets["passwords"][st.session_state["username"]]
             
-            st.session_state["password"]== 'test123'
+            st.session_state["password"]== 'test123' and st.session_state["username"]== 'user1'
             
         ):
             st.session_state["password_correct"] = True
