@@ -5,7 +5,7 @@ import streamlit as st
 #import os
 import requests
 #import json
-
+from io import BytesIO
 
 hide_streamlit_style = """
             <style>
