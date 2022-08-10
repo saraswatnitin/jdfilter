@@ -66,7 +66,7 @@ search_cand_prfl=requests.post(urlquery,
                               
                        )
 
-searched_cand=pd.read_json(BytesIO(search_cand_prfl.content),orient='index')
+searched_cand=pd.read_json(BytesIO(search_cand_prfl.content),orient='records')
 
 #searched_cand=pd.DataFrame(pd.read_json(search_cand_prfl.text),index=[0])
 
