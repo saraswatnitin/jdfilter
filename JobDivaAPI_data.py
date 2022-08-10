@@ -40,10 +40,6 @@ def check_password():
 if check_password():
     st.write("Here goes your normal Streamlit app...")
     st.button("Click me")
-            
-            
-
-
             hide_streamlit_style = """
                         <style>
                         #MainMenu {visibility: hidden;}
@@ -104,8 +100,6 @@ if check_password():
                                    )
 
             searched_cand=pd.read_json(BytesIO(search_cand_prfl.content),orient='records')
-
-            #searched_cand=pd.DataFrame(pd.read_json(search_cand_prfl.text),index=[0])
 
             df1 = searched_cand.replace({r'\s+$': '', r'^\s+': ''}, regex=True).replace(r'\n',  ' ', regex=True)
 
