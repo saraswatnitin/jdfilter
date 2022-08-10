@@ -70,7 +70,7 @@ searched_cand=pd.read_json(BytesIO(search_cand_prfl.content),orient='records')
 
 #searched_cand=pd.DataFrame(pd.read_json(search_cand_prfl.text),index=[0])
 
-#df1 = searched_cand.replace({r'\s+$': '', r'^\s+': ''}, regex=True).replace(r'\n',  ' ', regex=True)
+df1 = searched_cand.replace({r'\s+$': '', r'^\s+': ''}, regex=True).replace(r'\n',  ' ', regex=True)
 
 #df2=df1['zipcode'].astype(object)
 #df2=df1.fillna()
@@ -87,9 +87,9 @@ hide_table_row_index = """
 # Inject CSS with Markdown
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
-st.dataframe(searched_cand)
+#st.dataframe(searched_cand)
 
-#st.dataframe(df1)
+st.dataframe(df1)
 #st.dataframe(df2)
 
 #footer {
