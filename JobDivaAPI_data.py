@@ -66,7 +66,7 @@ search_cand_prfl=requests.post(urlquery,
                               
                        )
 
-searched_cand=pd.read_json(BytesIO(search_cand_prfl.content))
+searched_cand=pd.Dataframe([pd.read_json(BytesIO(search_cand_prfl.content))])
 
 df1 = searched_cand.replace({r'\s+$': '', r'^\s+': ''}, regex=True).replace(r'\n',  ' ', regex=True)
 #df2=df1['zipcode'].astype(object)
