@@ -83,7 +83,7 @@ if check_password():
     #st.markdown(original_title, unsafe_allow_html=True)
     st.title('Filter candidates based on Skill')
     skill = st.text_input('Enter Skill :', value='Java')
-        quoted_skill=str(skill)
+    quoted_skill=str(skill)
     #skill='.Net'
     print(skill)
     urlquery='https://api.jobdiva.com/api/jobdiva/searchCandidateProfile?maxreturned=10&candidateQuals={"catId": 28,"dcatNames": "'+quoted_skill+'"}'
