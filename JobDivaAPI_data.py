@@ -81,6 +81,7 @@ if check_password():
 
     #original_title = '<p style="font-family:Arial; color:Black; font-size: 30px; align:center;">Filter candidate records based on Skill</p>'
     #st.markdown(original_title, unsafe_allow_html=True)
+    quoted_skill='Java'
     st.title('Filter candidates based on Skill')
     skill = st.text_input('Enter Skill :')
     quoted_skill=str(skill)
