@@ -8,17 +8,17 @@ import requests
 from io import BytesIO
 
 hide_streamlit_style = """
-                    <style>
-                    #MainMenu {visibility: hidden;}
-                    footer {visibility: hidden;}
-                    </style>
-                    """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
 
 
 auth_tokn=requests.get('https://api.jobdiva.com/api/authenticate',
-                          params={'clientid':1245,
-                                  'username':'jobdiva.api@cogentinfo.com',
-                                 'password':'Pass@001'})
+                  params={'clientid':1245,
+                          'username':'jobdiva.api@cogentinfo.com',
+                         'password':'Pass@001'})
 
 
 
@@ -29,7 +29,7 @@ csrf=csrf.text[10:46]
 
 
 hdr={'Authorization':tokn,
-            'X-CSRF-TOKEN': csrf}
+    'X-CSRF-TOKEN': csrf}
 
 
 #st.title('Filter candidate records based on Skill: ')
@@ -44,64 +44,51 @@ quoted_skill=str(skill)
 print(skill)
 urlquery='https://api.jobdiva.com/api/jobdiva/searchCandidateProfile?maxreturned=10&candidateQuals={"catId": 28,"dcatNames": "'+quoted_skill+'"}'
 
-        #Pull candidate detail
-        #parms={
-        #    'maxreturned':10
-        #      ,
-        #     'candidateQuals':
-        #    {
-        #            'catId': 28,
-        #            'dcatNames': quoted_skill
-        #           }
-        #      }
+#Pull candidate detail
+#parms={
+#    'maxreturned':10
+#      ,
+#     'candidateQuals':
+#    {
+#            'catId': 28,
+#            'dcatNames': quoted_skill
+#           }
+#      }
 
-        #payload = {'request':  json.dumps(parms) }
+#payload = {'request':  json.dumps(parms) }
 
-        #print(payload)
+#print(payload)
 
 search_cand_prfl=requests.post(urlquery,
-                                      headers=hdr
-                                      #params=parms,
-                                      #params=payload
+                              headers=hdr
+                              #params=parms,
+                              #params=payload
 
-                               )
+                       )
 
 searched_cand=pd.read_json(BytesIO(search_cand_prfl.content),orient='records')
 
+#searched_cand=pd.DataFrame(pd.read_json(search_cand_prfl.text),index=[0])
+
 df1 = searched_cand.replace({r'\s+$': '', r'^\s+': ''}, regex=True).replace(r'\n',  ' ', regex=True)
 
-    #df2=df1['zipcode'].astype(object)
-        #df2=df1.fillna()
+#df2=df1['zipcode'].astype(object)
+#df2=df1.fillna()
 
 
-        # CSS to inject contained in a string
+# CSS to inject contained in a string
 hide_table_row_index = """
-                    <style>
-                    thead tr th:first-child {display:none}
-                    tbody th {display:none}
-                    </style>
-                    """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
 
-        # Inject CSS with Markdown
+# Inject CSS with Markdown
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
-st.dataframe(searched_cand)
+#st.dataframe(searched_cand)
 
-#st.dataframe(df1)
-        #st.dataframe(df2)
+st.dataframe(df1)
+#st.dataframe(df2)
 
-        #footer {
-        #	
-        #	visibility: hidden;
-        #	
-        #	}
-
-        #footer:after {
-        #	content:'(c) Cogent Infotech'; 
-        #	visibility: visible;
-        #	display: block;
-        #	position: relative;
-        #	#background-color: red;
-        #	padding: 5px;
-        #	top: 2px;
-        #}
