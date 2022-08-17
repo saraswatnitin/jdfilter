@@ -82,7 +82,12 @@ if check_password():
     #original_title = '<p style="font-family:Arial; color:Black; font-size: 30px; align:center;">Filter candidate records based on Skill</p>'
     #st.markdown(original_title, unsafe_allow_html=True)
     st.title('Filter candidates based on Skill')
-    skill = st.text_input('Enter Skill :', value='Java')
+
+    #skill = st.text_input('Enter Skill :', value='Java')
+    #Instead of user typing out the skill present a dropdown 
+    skill=st.selectbox('Enter a skill: ',('Java','Oracle','.Net'))
+    st.write('Your selected skill is: ',skill)
+
     quoted_skill=str(skill)
     #skill='.Net'
     print(skill)
