@@ -85,7 +85,14 @@ if check_password():
 
     #skill = st.text_input('Enter Skill :', value='Java')
     #Instead of user typing out the skill present a dropdown 
-    skill=st.selectbox('Enter a skill: ',('Java','Oracle','.Net'))
+    skill=st.selectbox('Enter a skill: ',('Java','Oracle','.Net','MS SQL Server',
+                        'QA/Tester',
+                        'Project Manager',
+                        'Business Analyst',
+                        'Enterprise Architect',
+                        'Technical Writer',
+                        'DBA',
+                        'DevOps'))
     st.write('Your selected skill is: ',skill)
 
     quoted_skill=str(skill)
